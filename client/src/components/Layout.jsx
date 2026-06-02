@@ -25,7 +25,7 @@ const Layout = () => {
           <div className="brand-mark">TA</div>
           <div>
             <p className="eyebrow">Admin Console</p>
-            <h1>Task Allocation</h1>
+            <h1>Lead Distribution</h1>
           </div>
         </div>
 
