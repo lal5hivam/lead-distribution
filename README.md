@@ -1,8 +1,6 @@
 # Task Allocation MERN App
 
-Admin Login + Agent Management + CSV/XLSX Upload and Task Distribution.
-
-This is a clean internship-level MERN stack project. It uses JWT authentication, MongoDB storage, agent creation, file parsing, row validation, and equal distribution of uploaded list items among the available agents.
+Admin Login + Agent Management + CSV/XLSX Upload and Lead Distribution.
 
 ## Tech Stack
 

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useLayoutEffect, useMemo, useState } from "react";
 import apiClient, { setAuthToken } from "../api/apiClient";
 
 const AuthContext = createContext(null);
@@ -13,16 +13,17 @@ const readStoredAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const storedAuth = readStoredAuth();
+  const [storedAuth] = useState(readStoredAuth);
   const [token, setToken] = useState(storedAuth.token || "");
   const [admin, setAdmin] = useState(storedAuth.admin || null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setAuthToken(token);
   }, [token]);
 
   const login = async (credentials) => {
     const { data } = await apiClient.post("/auth/login", credentials);
+    setAuthToken(data.token);
     setToken(data.token);
     setAdmin(data.admin);
     localStorage.setItem(
